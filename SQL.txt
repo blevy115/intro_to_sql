@@ -1,0 +1,45 @@
+1. SELECT * FROM robots WHERE source = 'Star Wars';
+Results C3PO | Star Wars | anxious     |  4
+        R2D2 | Star Wars | loyal       |  8
+
+2.SELECT name FROM robots WHERE personality = 'anxious';
+Result C3PO
+
+3. SELECT name FROM recipes WHERE nut_free = true;
+Results   Butternut Squash Bake
+          Vegetarian Bibimbap
+          French Veggie Loaf
+          Quinoa and Black Beans
+          Juicy Roasted Chicken
+          Garlic Green Beans
+          Stout Slow Cooker Corned Beef and Veggies
+
+4. SELECT COUNT(name) FROM recipes WHERE gluten_free = true AND nut_free = false;
+Result 1 (Vietnamese Rice-Noodle Salad) (Removed COUNT to find the name)
+
+5.SELECT name, number_of_legs FROM animals WHERE number_of_legs = (SELECT MAX(number_of_legs) FROM animals);
+Result octopus, 8
+
+6.SELECT name, mins_to_play FROM board_games WHERE mins_to_play = (SELECT MIN(mins_to_play) FROM board_games);
+Results Sushi Go |           15
+        Quixo    |           15
+
+7.SELECT name, minutes_required FROM recipes WHERE minutes_required = (SELECT MAX(minutes_required) FROM recipes);
+Result Stout Slow Cooker Corned Beef and Veggies |              390
+
+8. SELECT name FROM robots WHERE name BETWEEN 'M' AND 'N';
+Results  Marvin
+         Mr. Butlertron
+
+9.SELECT COUNT(id) FROM board_games WHERE max_players >= 8;
+Result 3
+
+10. SELECT name FROM animals WHERE swimming = true AND egg_laying = true;
+Result octopus
+       duck
+
+11. SELECT name FROM animals WHERE swimming = true AND egg_laying = true AND flying = false;
+Result octopus
+
+12. SELECT name, max_players FROM board_games WHERE max_players = (SELECT MAX(max_players) FROM board_games);
+Result Cards Against Humanity |          30
